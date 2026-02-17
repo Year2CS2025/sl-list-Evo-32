@@ -51,7 +51,7 @@ public class SLinkedList<T> implements Iterable<T> {
         newNode.next = head;
         head = newNode;
 
-        if (tail == null) { // if list was empty
+        if (tail == null) { 
             tail = newNode;
         }
         size++;
@@ -159,7 +159,6 @@ public class SLinkedList<T> implements Iterable<T> {
         return tail.data;
     }
 
-    // Reverse the list in-place
     public void reverse() {
         if (head == null || head.next == null) {
             return;
@@ -179,7 +178,6 @@ public class SLinkedList<T> implements Iterable<T> {
         head = prev;
     }
 
-    // Remove only consecutive duplicates
     public void deleteConsecutiveDuplicates() {
         if (head == null) return;
 
@@ -195,6 +193,28 @@ public class SLinkedList<T> implements Iterable<T> {
         }
 
         tail = current;
+    }
+
+
+    public void remove(T e) {
+        if (head == null) return; 
+
+        if (head.data.equals(e)) { 
+            head = head.next;
+            size--;
+            if (head == null) tail = null; 
+        }
+
+        Node<T> current = head;
+        while (current.next != null) {
+            if (current.next.data.equals(e)) {
+                current.next = current.next.next;
+                size--;
+                if (current.next == null) tail = current;
+                return;
+            }
+            current = current.next;
+        }
     }
 
     @Override

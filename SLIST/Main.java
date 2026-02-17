@@ -6,6 +6,7 @@ public class Main {
         list.addFirst(10);
         list.addFirst(20);
         list.addLast(5);
+        
         for (Integer i : list) {
             System.out.println(i);
         }
@@ -13,6 +14,7 @@ public class Main {
         l2.addFirst(10);
         l2.addFirst(20);
         l2.addLast(5);
+        
  
         if (list.equals(l2))
             System.out.println("Hoorah");
